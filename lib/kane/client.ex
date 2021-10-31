@@ -1,6 +1,6 @@
 defmodule Kane.Client do
   alias Response.Success
-  alias Response.Error
+  alias Kane.Client.Response.Error
 
   @spec get(binary, keyword) :: Success.t() | Error.t()
   def get(path, options \\ []), do: call(:get, path, options)
