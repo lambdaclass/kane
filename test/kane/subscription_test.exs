@@ -7,7 +7,8 @@ defmodule Kane.SubscriptionTest do
   setup do
     bypass = Bypass.open()
     Application.put_env(:kane, :endpoint, "http://localhost:#{bypass.port}")
-    {:ok, project} = Goth.Config.get(:project_id)
+    # {:ok, project} = Goth.Config.get(:project_id)
+    project = Application.get_env(:kane, :gcp_project)
     {:ok, bypass: bypass, project: project}
   end
 
