@@ -96,7 +96,8 @@ defmodule Kane.Topic do
   defp with_name(name), do: %__MODULE__{name: strip!(name)}
 
   defp project do
-    {:ok, id} = Goth.Config.get(:project_id)
+    # {:ok, id} = Goth.Config.get(:project_id)
+    id = Application.get_env(:kane, :gcp_project)
     id
   end
 

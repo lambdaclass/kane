@@ -1,17 +1,10 @@
 defmodule Kane.Client do
-  alias Response.Success
-  alias Response.Error
-
-  @spec get(binary, keyword) :: Success.t() | Error.t()
   def get(path, options \\ []), do: call(:get, path, options)
 
-  @spec put(binary, any, keyword) :: Success.t() | Error.t()
   def put(path, data \\ "", options \\ []), do: call(:put, path, data, options)
 
-  @spec post(binary, any, keyword) :: Success.t() | Error.t()
   def post(path, data, options \\ []), do: call(:post, path, data, options)
 
-  @spec delete(binary, keyword) :: Success.t() | Error.t()
   def delete(path, options \\ []), do: call(:delete, path, options)
 
   defp call(method, path, options) do

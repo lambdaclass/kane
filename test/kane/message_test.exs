@@ -39,7 +39,8 @@ defmodule Kane.MessageTest do
   end
 
   test "publishing a message", %{bypass: bypass} do
-    {:ok, project} = Goth.Config.get(:project_id)
+    # {:ok, project} = Goth.Config.get(:project_id)
+    project = Application.get_env(:kane, :gcp_project)
     topic = "publish"
 
     Bypass.expect(bypass, fn conn ->
@@ -53,7 +54,8 @@ defmodule Kane.MessageTest do
   end
 
   test "publishing multiple messages", %{bypass: bypass} do
-    {:ok, project} = Goth.Config.get(:project_id)
+    # {:ok, project} = Goth.Config.get(:project_id)
+    project = Application.get_env(:kane, :gcp_project)
     topic = "publish-multi"
     ids = ["hello", "hi", "howdy"]
 
