@@ -4,6 +4,13 @@ defmodule Kane.Subscription do
   alias Kane.Message
   alias Kane.Client
 
+  @type t :: %__MODULE__{
+    name: String.t(),
+    topic: Topic.t(),
+    ack_deadline: non_neg_integer() | nil,
+    filter: any() | nil
+  }
+
   @type s :: %__MODULE__{name: binary}
 
   def create(%__MODULE__{} = sub) do
